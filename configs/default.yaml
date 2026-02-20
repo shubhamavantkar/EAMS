@@ -1,0 +1,5 @@
+app:
+  report_hour: 18
+  poll_seconds: 5
+  idle_threshold_seconds: 300
+  retention_days: 14
