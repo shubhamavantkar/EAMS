@@ -25,10 +25,12 @@ EAMS does **not** collect passwords, keystrokes, clipboard, personal chat/email 
    ```bash
    python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
    ```
-4. Run in development mode:
-   ```bash
-   PYTHONPATH=src python -m eams.main
+4. Run in development mode from project root:
+   ```powershell
+   $env:PYTHONPATH="src"
+   python -m eams.main
    ```
+   (cmd.exe alternative: `set PYTHONPATH=src && python -m eams.main`)
 
 ## Windows Auto-Start
 ### Option A: Scheduled Task
@@ -41,3 +43,6 @@ Use `scripts/install_service.ps1` to install as a Windows service (requires admi
 - Keep `.env` secured and never commit credentials.
 - Ensure clock/timezone are correct for 6:00 PM scheduling.
 - Review log rotation settings in `configs/default.yaml`.
+## Documentation
+- [User Guide](USER_GUIDE.md)
+
