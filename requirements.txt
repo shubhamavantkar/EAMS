@@ -7,4 +7,4 @@ pydantic-settings==2.4.0
 python-dotenv==1.0.1
 tenacity==8.5.0
 tldextract==5.1.2
-pywin32==306; platform_system == "Windows"
+pywin32==311; platform_system == "Windows"

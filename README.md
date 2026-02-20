@@ -25,10 +25,12 @@ EAMS does **not** collect passwords, keystrokes, clipboard, personal chat/email 
    ```bash
    python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
    ```
-4. Run in development mode:
-   ```bash
-   PYTHONPATH=src python -m eams.main
+4. Run in development mode from project root:
+   ```powershell
+   $env:PYTHONPATH="src"
+   python -m eams.main
    ```
+   (cmd.exe alternative: `set PYTHONPATH=src && python -m eams.main`)
 
 ## Windows Auto-Start
 ### Option A: Scheduled Task
