@@ -17,25 +17,17 @@ EAMS is a local endpoint agent that:
 ## 2) System requirements
 
 - **OS:** Windows (recommended, because foreground/system event collection uses Windows APIs).
-- **Python:** 3.11 or 3.12 (recommended).
-- **Important:** run commands from the project root (`EAMS`), not from `scripts/` or `src/`.
+- **Python:** 3.11+
 - **Network:** outbound SMTP access to your mail server.
 
 ## 3) Project setup
 
-From the **project root** (`EAMS` directory):
+From the project root:
 
-```powershell
+```bash
 python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+.venv\Scripts\activate
 pip install -r requirements.txt
-```
-
-If your shell blocks script activation, run:
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\.venv\Scripts\Activate.ps1
 ```
 
 ## 4) Configure environment variables
@@ -80,16 +72,9 @@ Paste the output into `EAMS_STORAGE_KEY`.
 
 ## 5) Run EAMS manually
 
-From the **project root** where `.env` exists:
+From project root:
 
-### PowerShell
-```powershell
-$env:PYTHONPATH = "src"
-python -m eams.main
-```
-
-### Command Prompt (cmd.exe)
-```bat
+```bash
 set PYTHONPATH=src
 python -m eams.main
 ```
@@ -141,17 +126,8 @@ The provided `install_service.ps1` currently prints guidance to install via NSSM
 
 ## 9) Troubleshooting
 
-### `No matching distribution found for pywin32==306`
-- Use Python 3.11/3.12 and pull latest project dependencies.
-- This repository now pins a newer `pywin32` that is available on current Windows Python versions.
-
-### `ModuleNotFoundError: No module named eams`
-- Ensure you are in project root (`EAMS`) and set `PYTHONPATH` correctly for your shell.
-- In PowerShell, use `$env:PYTHONPATH = "src"` (not `set PYTHONPATH=src`).
-
-### Settings validation errors (missing `recipient_email`, SMTP, `storage_key`)
-- Run from project root so `.env` is discoverable by `pydantic-settings`.
-- Confirm `.env` exists and contains `EAMS_RECIPIENT_EMAIL`, SMTP values, and `EAMS_STORAGE_KEY`.
+### App exits immediately on startup
+- Check `.env` for missing required values (`recipient_email`, SMTP fields, `storage_key`).
 - Ensure venv is active and dependencies installed.
 
 ### No report email received
