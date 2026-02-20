@@ -14,6 +14,16 @@ Production-oriented Python endpoint agent for work-safe activity monitoring on W
 EAMS does **not** collect passwords, keystrokes, clipboard, personal chat/email content, or file contents.
 
 ## Setup
+### One-line install (quick start)
+```bash
+python -m venv .venv && (source .venv/bin/activate || .venv\\Scripts\\activate) && python -m pip install --upgrade pip && pip install -r requirements.txt
+```
+
+PowerShell alternative:
+```powershell
+python -m venv .venv; .\.venv\Scripts\Activate.ps1; python -m pip install --upgrade pip; pip install -r requirements.txt
+```
+
 1. Create a virtual environment and install dependencies:
    ```bash
    python -m venv .venv
@@ -45,4 +55,3 @@ Use `scripts/install_service.ps1` to install as a Windows service (requires admi
 - Review log rotation settings in `configs/default.yaml`.
 ## Documentation
 - [User Guide](USER_GUIDE.md)
-
