@@ -41,3 +41,6 @@ Use `scripts/install_service.ps1` to install as a Windows service (requires admi
 - Keep `.env` secured and never commit credentials.
 - Ensure clock/timezone are correct for 6:00 PM scheduling.
 - Review log rotation settings in `configs/default.yaml`.
+## Documentation
+- [User Guide](USER_GUIDE.md)
+
